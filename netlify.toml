@@ -1,0 +1,25 @@
+[build]
+  # Build command - builds Laravel assets using Vite
+  # Note: This only builds frontend assets. Laravel requires PHP runtime which Netlify doesn't support.
+  command = "npm install && npm run build"
+  
+  # Publish directory - Laravel's public directory contains the entry point
+  # However, Netlify doesn't support PHP, so this won't work for the full application
+  publish = "public"
+  
+  # Base directory - set to public_html if deploying from subdirectory
+  base = "."
+
+[build.environment]
+  NODE_VERSION = "18"
+  # Note: Netlify doesn't support PHP runtime for server-side execution
+
+# IMPORTANT: Netlify is a static site host and doesn't support PHP.
+# Laravel requires PHP to run. Consider these alternatives:
+# - Vercel (with PHP support)
+# - Railway
+# - Heroku
+# - DigitalOcean App Platform
+# - Traditional shared/VPS hosting (cPanel, etc.)
+# - Laravel Forge + DigitalOcean/Linode
+
