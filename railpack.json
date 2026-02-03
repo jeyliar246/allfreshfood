@@ -1,0 +1,27 @@
+{
+  "php": {
+    "version": "8.2",
+    "extensions": [
+      "ctype",
+      "curl",
+      "dom",
+      "fileinfo",
+      "filter",
+      "hash",
+      "mbstring",
+      "openssl",
+      "pcre",
+      "pdo",
+      "session",
+      "tokenizer",
+      "xml",
+      "bcmath",
+      "gd",
+      "zip",
+      "intl",
+      "mysql",
+      "pdo_mysql"
+    ]
+  }
+}
+
