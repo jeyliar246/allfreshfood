@@ -1,0 +1,25 @@
+[phases.setup]
+nixPkgs = ["php82", "php82Packages.composer", "nodejs-18_x"]
+
+[phases.install]
+cmds = [
+  "composer install --optimize-autoloader --no-scripts --no-interaction",
+  "npm ci",
+  "npm run build"
+]
+
+[phases.build]
+cmds = [
+  "mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache",
+  "chmod -R 775 storage bootstrap/cache",
+  "php artisan config:cache",
+  "php artisan route:cache",
+  "php artisan view:cache"
+]
+
+[start]
+cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+
+[variables]
+PHP_EXTENSIONS = "bcmath,ctype,curl,dom,fileinfo,filter,gd,hash,intl,mbstring,mysql,openssl,pdo,pdo_mysql,session,tokenizer,xml,zip"
+
